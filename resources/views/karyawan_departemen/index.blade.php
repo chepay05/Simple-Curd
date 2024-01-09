@@ -1,16 +1,14 @@
 @extends('layout')
 
-<title>Karyawan</title>
-
 @section('content')
     <div class="container">
         <header class="mb-4">
-            <h1 class="text-center">Daftar Karyawan Dan Departemen</h1>
+            <h1 class="text-center">Daftar Karyawan dan Departemen</h1>
         </header>
 
         <main>
-            <a href="/karyawan/departemen/create" type="button" class="btn btn-primary mb-4">Tambah Data Karyawan dan
-                Departemen</a>
+            <a href="/karyawan/departemen/create" class="btn btn-primary mb-4">Tambah Data Karyawan dan Departemen</a>
+
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
@@ -36,9 +34,14 @@
                     @endforeach
                 </tbody>
             </table>
-            <td>
-                <a href="/departemen" class="btn btn-warning">Departemen</a>
-            </td>
+
+            <div class="d-flex justify-content-between">
+                <div class="mr-auto">
+                    <!-- Tautan lainnya yang ingin diposisikan di sebelah kiri -->
+                </div>
+                <a href="/logout" class="btn btn-secondary">Logout</a>
+            </div>
+
         </main>
 
         <footer class="mt-4">

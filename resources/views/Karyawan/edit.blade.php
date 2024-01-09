@@ -47,6 +47,7 @@
                         </div>
                     @endif
                     <button type="submit" class="btn btn-primary btn-block mt-4">Simpan Perubahan</button>
+                    <a href="/karyawan" class="btn btn-primary btn-block mt-4">Kembali</a>
                 </form>
             </div>
         </div>

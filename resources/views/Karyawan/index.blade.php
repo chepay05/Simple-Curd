@@ -1,6 +1,6 @@
 @extends('layout')
 
-<title>Karyawan</title>
+@section('title', 'Karyawan')
 
 @section('content')
     <div class="container">
@@ -30,16 +30,18 @@
                             <td>{{ $k->Jabatan }}</td>
                             <td>{{ $k->Gaji }}</td>
                             <td>
-                                <a href="/karyawan/edit/{{ $k->NIP }}" class="btn btn-success">Edit</a>
+                                <a href="/karyawan/edit/{{ $k->NIP }}" class="btn btn-warning">Edit</a>
                                 <a href="/karyawan/delete/{{ $k->NIP }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            <td>
-                <a href="/departemen" class="btn btn-warning">Departemen</a>
-            </td>
+
+            <div class="d-flex justify-content-between">
+                <a href="/departemen" class="btn btn-info">Departemen</a>
+                <a href="/logout" class="btn btn-secondary">Logout</a>
+            </div>
         </main>
 
         <footer class="mt-4">
