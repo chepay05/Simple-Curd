@@ -42,8 +42,12 @@
                             </ul>
                         </div>
                     @endif
-                    <button type="submit" class="btn btn-primary btn-block mt-4">Tambah Karyawan</button>
-                    <a href="/karyawan" class="btn btn-primary btn-block mt-4">Kembali</a>
+                    <button type="submit" class="btn btn-primary btn-block mt-4">
+                        <i class="bi bi-person-plus"></i> Tambah Karyawan
+                    </button>
+                    <a href="/karyawan" class="btn btn-secondary btn-block mt-4">
+                        <i class="bi bi-arrow-left"></i> Kembali
+                    </a>
                 </form>
             </div>
         </div>

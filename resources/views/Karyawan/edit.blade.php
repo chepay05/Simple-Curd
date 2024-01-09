@@ -46,8 +46,12 @@
                             </ul>
                         </div>
                     @endif
-                    <button type="submit" class="btn btn-primary btn-block mt-4">Simpan Perubahan</button>
-                    <a href="/karyawan" class="btn btn-primary btn-block mt-4">Kembali</a>
+                    <button type="submit" class="btn btn-primary btn-block mt-4">
+                        <i class="bi bi-check-circle"></i> Simpan Perubahan
+                    </button>
+                    <a href="/karyawan" class="btn btn-secondary btn-block mt-4">
+                        <i class="bi bi-arrow-left"></i> Kembali
+                    </a>
                 </form>
             </div>
         </div>

@@ -48,7 +48,12 @@
                             </div>
                         @endif
 
-                        <button type="submit" class="btn btn-primary btn-block mt-4">Update Karyawan Departemen</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-4">
+                            <i class="bi bi-arrow-up-right"></i> Update Karyawan Departemen
+                        </button>
+                        <a href="/karyawan/departemen" class="btn btn-secondary btn-block mt-4">
+                            <i class="bi bi-arrow-left"></i> Kembali
+                        </a>
                     </form>
                 @else
                     <p>Data not found</p>

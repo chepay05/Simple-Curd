@@ -5,16 +5,16 @@
     <div class="container mt-5">
         <div class="card border-0 shadow-lg">
             <div class="card-body">
-                <h5 class="card-title text-center">Tambah Data Karyawan_Departemen</h5>
+                <h5 class="card-title text-center">Tambah Data Karyawan Departemen</h5>
                 <hr class="my-4">
                 <form action="/karyawan/departemen/store" method="POST">
                     @csrf
                     {{-- <div class="mb-3 row">
-                    <label for="Kode" class="col-sm-3 col-form-label">Kode</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="Kode" name="Kode" required>
-                    </div>
-                </div>                 --}}
+                        <label for="Kode" class="col-sm-3 col-form-label">Kode</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Kode" name="Kode" required>
+                        </div>
+                    </div> --}}
                     <div class="mb-3 row">
                         <label for="NIP" class="col-sm-3 col-form-label">NIP</label>
                         <div class="col-sm-9">
@@ -46,7 +46,12 @@
                             </ul>
                         </div>
                     @endif
-                    <button type="submit" class="btn btn-primary btn-block mt-4">Tambah Karyawan Departemen</button>
+                    <button type="submit" class="btn btn-primary btn-block mt-4">
+                        <i class="bi bi-plus"></i> Tambah Karyawan Departemen
+                    </button>
+                    <a href="/karyawan/departemen" class="btn btn-secondary btn-block mt-4">
+                        <i class="bi bi-arrow-left"></i> Kembali
+                    </a>
                 </form>
             </div>
         </div>

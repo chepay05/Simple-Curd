@@ -9,7 +9,8 @@
         </header>
 
         <main>
-            <a href="/karyawan/create" type="button" class="btn btn-primary mb-4">Tambah Data Karyawan</a>
+            <a href="/karyawan/create" type="button" class="btn btn-primary mb-4">
+                <i class="bi bi-person-plus"></i> Tambah Data Karyawan</a>
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
@@ -30,8 +31,12 @@
                             <td>{{ $k->Jabatan }}</td>
                             <td>{{ $k->Gaji }}</td>
                             <td>
-                                <a href="/karyawan/edit/{{ $k->NIP }}" class="btn btn-warning">Edit</a>
-                                <a href="/karyawan/delete/{{ $k->NIP }}" class="btn btn-danger">Delete</a>
+                                <a href="/karyawan/edit/{{ $k->NIP }}" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </a>
+                                <a href="/karyawan/delete/{{ $k->NIP }}" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -39,8 +44,12 @@
             </table>
 
             <div class="d-flex justify-content-between">
-                <a href="/departemen" class="btn btn-info">Departemen</a>
-                <a href="/logout" class="btn btn-secondary">Logout</a>
+                <a href="/departemen" class="btn btn-info">
+                    <i class="bi bi-building"></i> Departemen
+                </a>
+                <a href="/logout" class="btn btn-secondary">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
             </div>
         </main>
 

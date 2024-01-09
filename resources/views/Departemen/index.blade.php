@@ -1,6 +1,6 @@
 @extends('layout')
 
-<title>Departemen</title>
+@section('title', 'Departemen')
 
 @section('content')
     <div class="container">
@@ -9,7 +9,9 @@
         </header>
 
         <main>
-            <a href="/create" type="button" class="btn btn-primary mb-4">Tambah Data Departemen</a>
+            <a href="/create" type="button" class="btn btn-primary mb-4">
+                <i class="bi bi-plus"></i> Tambah Data Departemen
+            </a>
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
@@ -26,16 +28,22 @@
                             <td>{{ $d->Id_Departemen }}</td>
                             <td>{{ $d->Nama_departemen }}</td>
                             <td>
-                                <a href="/edit/{{ $d->Id_Departemen }}" class="btn btn-warning">Edit</a>
+                                <a href="/edit/{{ $d->Id_Departemen }}" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </a>
                                 <a href="/delete/{{ $d->Id_Departemen }}" class="btn btn-danger"
-                                    onclick="return confirmDelete('{{ $d->Id_Departemen }}')">Delete</a>
+                                    onclick="return confirmDelete('{{ $d->Id_Departemen }}')">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
             <td>
-                <a href="/" class="btn btn-info">karyawan</a>
+                <a href="/" class="btn btn-info">
+                    <i class="bi bi-arrow-left"></i> Karyawan
+                </a>
             </td>
         </main>
 
