@@ -41,7 +41,7 @@
                 </tbody>
             </table>
             <td>
-                <a href="/" class="btn btn-info">
+                <a href="/karyawan" class="btn btn-info">
                     <i class="bi bi-arrow-left"></i> Karyawan
                 </a>
             </td>

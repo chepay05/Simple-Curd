@@ -91,10 +91,10 @@ class DepartemenController extends Controller
         $isReferenced = karyawan_departemen::where('Id_Departemen', $id)->exists();
 
         if ($isReferenced) {
-            return redirect('departemen-index');
+            return redirect()->route('departemen-index');
         } else {
             $departemen->delete();
-            return redirect('departemen.index');
+            return redirect()->route('departemen-index');
         }
         return redirect()->route('departemen-index')->with('error', 'Data not found');
     }

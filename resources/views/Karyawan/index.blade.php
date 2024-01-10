@@ -47,6 +47,8 @@
                 <a href="/departemen" class="btn btn-info">
                     <i class="bi bi-building"></i> Departemen
                 </a>
+                <a href="/departemen/kaeyawan" class="btn btn-info">
+                </a>
                 <a href="/logout" class="btn btn-secondary">
                     <i class="bi bi-box-arrow-right"></i> Logout
                 </a>

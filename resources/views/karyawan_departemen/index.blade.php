@@ -17,7 +17,8 @@
                         <th scope="col">#</th>
                         <th scope="col">Kode</th>
                         <th scope="col">NIP</th>
-                        <th scope="col">ID Departemen</th>
+                        <th scope="col">Nama Karyawan</th>
+                        <th scope="col">Nama Departemen</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -27,7 +28,8 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $kd->Kode }}</td>
                             <td>{{ $kd->NIP }}</td>
-                            <td>{{ $kd->Id_Departemen }}</td>
+                            <td>{{ optional($kd->karyawan)->Nama }}</td>
+                            <td>{{ optional($kd->departemen)->Nama_departemen }}</td>
                             <td>
                                 <a href="/karyawan/departemen/edit/{{ $kd->Kode }}" class="btn btn-warning">
                                     <i class="bi bi-pencil"></i> Edit

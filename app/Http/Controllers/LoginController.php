@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -20,23 +21,31 @@ class LoginController extends Controller
                 'password' => 'required',
             ],
             [
-                'email.required' => 'email Wajib di isi',
-                'password.required' => 'password Wajib di isi',
+                'email.required' => 'Email wajib di isi',
+                'password.required' => 'Password wajib di isi',
             ]
         );
+
         $infoLogin = [
             'email' => $request->email,
             'password' => $request->password,
         ];
+
         if (Auth::attempt($infoLogin)) {
-            if (Auth::user()->role == 'admin') {
+            $user = Auth::user();
+
+            if ($user->role == 'admin') {
+                // Set the user role in the session
+                Session::put('role', 'admin');
                 return redirect()->route('index');
-            } elseif (Auth::user()->role == 'staff') {
+            } elseif ($user->role == 'staff') {
+                // Set the user role in the session
+                Session::put('role', 'staff');
                 return redirect()->route('karyawan_departemen.index');
             }
         } else {
-            return redirect('')->withErrors('Username dan Password Tidak sesuai');
-        };
+            return redirect()->route('login')->withErrors('Username dan Password Tidak sesuai');
+        }
     }
 
     public function logout()
