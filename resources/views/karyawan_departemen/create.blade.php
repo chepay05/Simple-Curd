@@ -1,7 +1,6 @@
 @extends('layout')
-
+<title>Tambah Karyawan Departemen</title>
 @section('content')
-
     <div class="container mt-5">
         <div class="card border-0 shadow-lg">
             <div class="card-body">
@@ -9,12 +8,13 @@
                 <hr class="my-4">
                 <form action="/karyawan/departemen/store" method="POST">
                     @csrf
-                    {{-- <div class="mb-3 row">
+                    <div class="mb-3 row">
                         <label for="Kode" class="col-sm-3 col-form-label">Kode</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="Kode" name="Kode" required>
+                            <input type="text" class="form-control" id="Kode" name="Kode"
+                                value="{{ sprintf($karyawan_departemen->Kode) }}" readonly>
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="mb-3 row">
                         <label for="NIP" class="col-sm-3 col-form-label">NIP</label>
                         <div class="col-sm-9">

@@ -1,7 +1,6 @@
 @extends('layout')
-
+<title>Tambah Karyawan</title>
 @section('content')
-
     <div class="container mt-5">
         <div class="card border-0 shadow-lg">
             <div class="card-body">
@@ -12,7 +11,8 @@
                     <div class="mb-3 row">
                         <label for="NIP" class="col-sm-3 col-form-label">NIP</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="NIP" name="NIP" required>
+                            <input type="text" class="form-control" id="NIP" name="NIP"
+                                value="{{ sprintf($karyawan->NIP) }}" readonly>
                         </div>
                     </div>
                     <div class="mb-3 row">

@@ -1,4 +1,5 @@
 @extends('layout')
+<title>Edit Karyawan Departemen</title>
 @section('content')
     <div class="container mt-5">
         <div class="card border-0 shadow-lg">

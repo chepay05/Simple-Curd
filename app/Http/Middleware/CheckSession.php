@@ -27,12 +27,11 @@ class CheckSession
                 $response->header('Cache-Control', 'no-cache, no-store, must-revalidate');
                 $response->header('Pragma', 'no-cache');
                 $response->header('Expires', '0');
-
                 return $response;
             }
         }
 
         // If not authenticated, redirect to login
-        return redirect()->route('login')->withErrors('Logout');
+        return redirect()->route('login')->with('errors', 'Logout');
     }
 }

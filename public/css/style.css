@@ -1,0 +1,100 @@
+/* style.css */
+/* Form Login */
+body {
+    background-color: rgba(
+        248,
+        249,
+        250,
+        0.9
+    ); /* Memberikan efek transparansi */
+}
+.custom-dark-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007bff; /* Warna header */
+    color: white; /* Warna teks header */
+}
+
+.card-body {
+    background-color: #f8f9fa; /* Warna latar belakang body */
+}
+
+.form-label {
+    font-weight: bold; /* Teks label lebih tebal */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Warna tombol */
+    border-color: #007bff; /* Warna border tombol */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: scale(1.05); /* Memberikan efek scaling saat hover */
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Efek focus tombol */
+}
+
+/* Form Index */
+
+/* Tambahkan beberapa gaya khusus untuk tampilan index Karyawan */
+.container {
+    max-width: 1000px; /* Lebar maksimum container */
+    margin: auto; /* Pusatkan container */
+}
+
+.header {
+    background-color: #007bff; /* Warna latar header */
+    color: white; /* Warna teks header */
+    padding: 20px; /* Ruang di sekitar header */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Warna tombol "Tambah Data Karyawan" */
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Warna tombol saat dihover */
+    border-color: #0056b3;
+}
+
+/* Gaya untuk footer */
+.footer {
+    margin-top: 50px; /* Ruang di atas footer */
+    padding: 10px; /* Ruang di sekitar footer */
+    background-color: #f8f9fa; /* Warna latar footer */
+    text-align: center; /* Pusatkan teks pada footer */
+}
+
+/* Tambahkan beberapa gaya khusus untuk pesan selamat datang */
+.alert-success {
+    background-color: #d4edda; /* Warna latar belakang pesan sukses */
+    color: #155724; /* Warna teks pada pesan sukses */
+    border-color: #c3e6cb; /* Warna border pesan sukses */
+    padding: 10px 15px; /* Ruang di sekitar konten pesan */
+    margin-bottom: 20px; /* Ruang di bawah pesan */
+    border-radius: 5px; /* Sudut elemen pesan */
+}
+
+/* Efek hover untuk pesan sukses */
+.alert-success:hover {
+    background-color: #c3e6cb;
+}
+
+/* Gaya teks pada pesan sukses */
+.alert-success p {
+    margin-bottom: 0; /* Menghilangkan margin bawah pada paragraf di dalam pesan */
+    font-size: 16px; /* Ukuran teks pesan */
+    font-weight: bold; /* Teks tebal */
+}

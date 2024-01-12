@@ -12,13 +12,14 @@ class departemen extends Model
     protected $table = 'departemen';
 
     protected $primaryKey = 'Id_Departemen';
-    
+
     protected $fillable = [
         'Id_Departemen',
         'Nama_departemen',
     ];
 
-    public function karyawan(){
+    public function karyawan()
+    {
         return $this->hasOne(karyawan_departemen::class, 'Id_Departemen');
     }
 }

@@ -27,29 +27,26 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function () {
     Route::get('/karyawan', [KaryawanController::class, 'index'])->name('index');
     Route::get('/karyawan/departemen', [KaryawanDepartemenController::class, 'index'])->name('karyawan_departemen.index');
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-    Route::middleware(['CheckSession'])->group(function () {
-        Route::get('/karyawan', [KaryawanController::class, 'index'])->name('index');
-        Route::get('/karyawan/departemen', [KaryawanDepartemenController::class, 'index'])->name('karyawan_departemen.index');
-    });
 
     Route::get('/home', function () {
         return redirect('/karyawan');
     });
 
-    Route::get('/karyawan/create', [KaryawanController::class, 'create']);
-    Route::post('/karyawan/store', [KaryawanController::class, 'store']);
-    Route::get('/karyawan/edit/{id}', [KaryawanController::class, 'edit'])->name('edit');
-    Route::post('/karyawan/update/{id}', [KaryawanController::class, 'update']);
-    Route::get('/karyawan/delete/{id}', [KaryawanController::class, 'delete'])->name('delete');
+    Route::middleware(['auth', 'CheckSession', 'CheckStaffAccess'])->group(function () {
+        Route::get('/karyawan', [KaryawanController::class, 'index'])->name('index');
+        Route::get('/karyawan/create', [KaryawanController::class, 'create']);
+        Route::post('/karyawan/store', [KaryawanController::class, 'store']);
+        Route::get('/karyawan/edit/{id}', [KaryawanController::class, 'edit'])->name('edit');
+        Route::post('/karyawan/update/{id}', [KaryawanController::class, 'update']);
+        Route::get('/karyawan/delete/{id}', [KaryawanController::class, 'delete'])->name('delete');
 
-    Route::get('/departemen', [DepartemenController::class, 'index'])->name('departemen-index');
-    Route::get('/create', [DepartemenController::class, 'create']);
-    Route::post('/store', [DepartemenController::class, 'store']);
-    Route::get('/edit/{id}', [DepartemenController::class, 'edit'])->name('departemen-edit');
-    Route::post('/update/{id}', [DepartemenController::class, 'update']);
-    Route::get('/delete/{id}', [DepartemenController::class, 'delete'])->name('departemen-delete');
+        Route::get('/departemen', [DepartemenController::class, 'index'])->name('departemen-index');
+        Route::get('/create', [DepartemenController::class, 'create']);
+        Route::post('/store', [DepartemenController::class, 'store']);
+        Route::get('/edit/{id}', [DepartemenController::class, 'edit'])->name('departemen-edit');
+        Route::post('/update/{id}', [DepartemenController::class, 'update']);
+        Route::get('/delete/{id}', [DepartemenController::class, 'delete'])->name('departemen-delete');
+    });
 
     Route::get('/karyawan/departemen/create', [KaryawanDepartemenController::class, 'create']);
     Route::post('/karyawan/departemen/store', [KaryawanDepartemenController::class, 'store']);

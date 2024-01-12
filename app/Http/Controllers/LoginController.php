@@ -37,11 +37,11 @@ class LoginController extends Controller
             if ($user->role == 'admin') {
                 // Set the user role in the session
                 Session::put('role', 'admin');
-                return redirect()->route('index');
+                return redirect()->route('index')->with('helo', "Helo Selamat datang " . $user->name);
             } elseif ($user->role == 'staff') {
                 // Set the user role in the session
                 Session::put('role', 'staff');
-                return redirect()->route('karyawan_departemen.index');
+                return redirect()->route('karyawan_departemen.index')->with('helo', "Helo Selamat datang " . $user->name);
             }
         } else {
             return redirect()->route('login')->withErrors('Username dan Password Tidak sesuai');
@@ -51,6 +51,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('');
+        return redirect('')->with('helo', "Anda Berhasil Logout");
     }
 }

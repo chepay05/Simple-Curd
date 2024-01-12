@@ -22,7 +22,10 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        return view('Karyawan.create');
+        $max = Karyawan::max('NIP');
+        $karyawan = new Karyawan();
+        $karyawan->NIP = $max + 1;
+        return view('Karyawan.create', compact('karyawan'));
     }
 
     /**
@@ -31,7 +34,7 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'NIP' => 'required',
+            // 'NIP' => 'required',
             'Nama' => 'required',
             'Jabatan' => 'required',
             'Gaji' => 'integer',

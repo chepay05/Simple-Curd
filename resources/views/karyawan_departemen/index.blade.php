@@ -1,7 +1,12 @@
 @extends('layout')
-
+<title>Halaman Karyawan Departemen</title>
 @section('content')
     <div class="container">
+        @if (session('helo'))
+            <div class="alert alert-success">
+                {{ session('helo') }}
+            </div>
+        @endif
         <header class="mb-4">
             <h1 class="text-center">Daftar Karyawan dan Departemen</h1>
         </header>
@@ -14,9 +19,7 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Kode</th>
-                        <th scope="col">NIP</th>
                         <th scope="col">Nama Karyawan</th>
                         <th scope="col">Nama Departemen</th>
                         <th scope="col">Aksi</th>
@@ -25,11 +28,9 @@
                 <tbody>
                     @foreach ($karyawanDepartemen as $kd)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $kd->Kode }}</td>
-                            <td>{{ $kd->NIP }}</td>
-                            <td>{{ optional($kd->karyawan)->Nama }}</td>
-                            <td>{{ optional($kd->departemen)->Nama_departemen }}</td>
+                            <td>{{ $kd->karyawan->Nama }}</td>
+                            <td>{{ $kd->departemen->Nama_departemen }}</td>
                             <td>
                                 <a href="/karyawan/departemen/edit/{{ $kd->Kode }}" class="btn btn-warning">
                                     <i class="bi bi-pencil"></i> Edit
@@ -43,16 +44,19 @@
                 </tbody>
             </table>
 
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div class="mr-auto">
-                    <!-- Tautan lainnya yang ingin diposisikan di sebelah kiri -->
-                </div>
-                <a href="/logout" class="btn btn-secondary">
-                    <i class="bi bi-box-arrow-right"></i> Logout
-                </a>
+            <div class="d-flex mb-3">
+                @if (Auth::user()->role == 'admin')
+                    <div class="p-2"> <a href="/karyawan" class="btn btn-info">
+                            <i class="bi bi-building"></i> Departemen</a>
+                    </div>
+                @endif
+                @if (Auth::user()->role == 'staff')
+                    <div class="ms-auto p-2"> <a href="/logout" class="btn btn-secondary">
+                            <i class="bi bi-box-arrow-right"></i> Logout</a>
+                    </div>
+                @endif
             </div>
         </main>
-
         <footer class="mt-4">
             <p class="text-center">Copyright &copy; 2024</p>
         </footer>

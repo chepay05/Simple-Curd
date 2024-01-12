@@ -1,13 +1,10 @@
 @extends('layout')
-
-@section('title', 'Departemen')
-
+<title>Halaman Departemen</title>
 @section('content')
     <div class="container">
         <header class="mb-4">
             <h1 class="text-center">Daftar Departemen</h1>
         </header>
-
         <main>
             <a href="/create" type="button" class="btn btn-primary mb-4">
                 <i class="bi bi-plus"></i> Tambah Data Departemen
@@ -15,7 +12,6 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">id Departemen</th>
                         <th scope="col">Nama Departemen</th>
                         <th scope="col">Aksi</th>
@@ -24,7 +20,6 @@
                 <tbody>
                     @foreach ($departemen as $d)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $d->Id_Departemen }}</td>
                             <td>{{ $d->Nama_departemen }}</td>
                             <td>
@@ -42,7 +37,7 @@
             </table>
             <td>
                 <a href="/karyawan" class="btn btn-info">
-                    <i class="bi bi-arrow-left"></i> Karyawan
+                    <i class="bi bi-person"></i> Karyawan
                 </a>
             </td>
         </main>

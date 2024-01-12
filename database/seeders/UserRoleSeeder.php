@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserRoleSeeder extends Seeder
 {
@@ -13,25 +15,17 @@ class UserRoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = [
-            [
-                'name' => 'admin',
-                'email' => 'admin@gmail.com',
-                'role' => 'admin',
-                'password' => 'admin123',
-            ],
-        ];
-        $user = [
-            [
-                'name' => 'staff',
-                'email' => 'staff@gmail.com',
-                'role' => 'staff',
-                'password' => 'staff123',
-            ],
-        ];
-
-        foreach ($user as $key => $val) {
-            User::create($val);
-        }
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin123'),
+            'role' => 'admin',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'staff',
+            'email' => 'staff@gmail.com',
+            'password' => Hash::make('staff123'),
+            'role' => 'staff',
+        ]);
     }
 }

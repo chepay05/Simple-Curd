@@ -1,9 +1,9 @@
 @extends('layout')
-
+<title>Halaman Login</title>
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6 bg-light rounded-lg p-4">
+            <div class="col-md-6 bg-light rounded-lg p-4 custom-dark-shadow">
                 <div class="card-header text-center bg-light text-primary">
                     <h2>Login</h2>
                 </div>
@@ -29,10 +29,18 @@
                             <input type="password" class="form-control" id="password" name="password"
                                 placeholder="Masukkan kata sandi">
                         </div>
-                        <button type="submit" class="btn btn-primary">Masuk</button>
+                        <button type="submit" class="btn btn-primary rounded-pill btn-block">
+                            Masuk
+                        </button>
+                        @if (session('helo'))
+                            <div class="alert alert-success mt-3">
+                                {{ session('helo') }}
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

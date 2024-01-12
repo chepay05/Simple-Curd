@@ -6,7 +6,6 @@ use App\Models\departemen;
 use App\Models\Karyawan;
 use App\Models\karyawan_departemen;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class KaryawanDepartemenController extends Controller
 {
@@ -24,10 +23,13 @@ class KaryawanDepartemenController extends Controller
      */
     public function create()
     {
+        $max = karyawan_departemen::max('Kode');
+        $karyawan_departemen = new karyawan_departemen();
+        $karyawan_departemen->Kode = $max + 1;
         $karyawanList = Karyawan::all();
         $departemenList = Departemen::all();
 
-        return view('karyawan_departemen.create', compact('karyawanList', 'departemenList'));
+        return view('karyawan_departemen.create', compact('karyawanList', 'departemenList', 'karyawan_departemen'));
     }
 
     /**
@@ -38,23 +40,27 @@ class KaryawanDepartemenController extends Controller
         $request->validate([
             'NIP' => 'required|exists:karyawan,NIP',
             'Id_Departemen' => 'required|exists:departemen,Id_Departemen',
+            'Kode' => 'required', // Assuming 'Kode' is your primary key in 'karyawan_departemen'
         ]);
 
         // Get existing karyawan and departemen data
         $karyawan = Karyawan::find($request->NIP);
         $departemen = Departemen::find($request->Id_Departemen);
 
-        // Create karyawan_departemen entry with uniqid
-        $randomNumber = mt_rand(1000000, 9999999);
-        $karyawanDepartemen = new karyawan_departemen();
-        $karyawanDepartemen->Kode = $randomNumber; // Panjang karakter yang diinginkan, contoh: 10 karakter
-        $karyawanDepartemen->NIP = $karyawan->NIP;
-        $karyawanDepartemen->Id_Departemen = $departemen->Id_Departemen;
-        $karyawanDepartemen->save();
+        // Make sure 'Kode' is provided in the request or generate it as needed
+        $kode = $request->Kode ?? (karyawan_departemen::max('Kode') + 1);
+
+        // Create karyawan_departemen entry
+        karyawan_departemen::create([
+            'Kode' => $kode,
+            'NIP' => $karyawan->NIP,
+            'Id_Departemen' => $departemen->Id_Departemen,
+        ]);
 
         // Provide feedback to the user
         return redirect()->route('karyawan_departemen.index')->with('success', 'Karyawan_Departemen created successfully!');
     }
+
 
 
     /**

@@ -1,20 +1,21 @@
 @extends('layout')
-
-@section('title', 'Karyawan')
-
+<title>Halaman Karyawan</title>
 @section('content')
     <div class="container">
         <header class="mb-4">
             <h1 class="text-center">Daftar Karyawan</h1>
         </header>
-
+        @if (session('helo'))
+            <div class="alert alert-success">
+                {{ session('helo') }}
+            </div>
+        @endif
         <main>
             <a href="/karyawan/create" type="button" class="btn btn-primary mb-4">
                 <i class="bi bi-person-plus"></i> Tambah Data Karyawan</a>
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">NIP</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Jabatan</th>
@@ -25,7 +26,6 @@
                 <tbody>
                     @foreach ($karyawan as $k)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $k->NIP }}</td>
                             <td>{{ $k->Nama }}</td>
                             <td>{{ $k->Jabatan }}</td>
@@ -43,16 +43,18 @@
                 </tbody>
             </table>
 
-            <div class="d-flex justify-content-between">
-                <a href="/departemen" class="btn btn-info">
-                    <i class="bi bi-building"></i> Departemen
-                </a>
-                <a href="/departemen/kaeyawan" class="btn btn-info">
-                </a>
-                <a href="/logout" class="btn btn-secondary">
-                    <i class="bi bi-box-arrow-right"></i> Logout
-                </a>
+            <div class="d-flex mb-3">
+                <div class="p-2"> <a href="/departemen" class="btn btn-info">
+                        <i class="bi bi-building"></i> Departemen</a>
+                </div>
+                <div class="p-2"> <a href="/karyawan/departemen" class="btn btn-info ms-auto">
+                        <i class="bi bi-person"></i> Karyawan Departemen <i class="bi bi-building"></i></a>
+                </div>
+                <div class="ms-auto p-2"> <a href="/logout" class="btn btn-secondary">
+                        <i class="bi bi-box-arrow-right"></i> Logout</a>
+                </div>
             </div>
+
         </main>
 
         <footer class="mt-4">

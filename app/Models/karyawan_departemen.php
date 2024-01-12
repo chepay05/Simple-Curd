@@ -17,10 +17,10 @@ class karyawan_departemen extends Model
 
     public function karyawan()
     {
-        return $this->belongsTo(karyawan::class,'NIP');
+        return $this->belongsTo(karyawan::class, 'NIP');
     }
     public function departemen()
     {
-        return $this->belongsTo(departemen::class,'Id_karyawan');
+        return $this->belongsTo(departemen::class, 'Id_Departemen');
     }
 }
