@@ -12,7 +12,7 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">id Departemen</th>
+                        {{-- <th scope="col">id Departemen</th> --}}
                         <th scope="col">Nama Departemen</th>
                         <th scope="col">Aksi</th>
                     </tr>
@@ -20,7 +20,7 @@
                 <tbody>
                     @foreach ($departemen as $d)
                         <tr>
-                            <td>{{ $d->Id_Departemen }}</td>
+                            {{-- <td>{{ $d->Id_Departemen }}</td> --}}
                             <td>{{ $d->Nama_departemen }}</td>
                             <td>
                                 <a href="/edit/{{ $d->Id_Departemen }}" class="btn btn-warning">

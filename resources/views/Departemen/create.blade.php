@@ -8,13 +8,13 @@
                 <hr class="my-4">
                 <form action="/store" method="POST">
                     @csrf
-                    <div class="mb-3 row">
+                    {{-- <div class="mb-3 row">
                         <label for="Id_Departemen" class="col-sm-3 col-form-label">Id Departemen</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="Id_Departemen" name="Id_Departemen"
                                 value="{{ sprintf($departemen->Id_Departemen) }}" readonly>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="mb-3 row">
                         <label for="Nama_departemen" class="col-sm-3 col-form-label">Nama Departemen</label>
                         <div class="col-sm-9">
