@@ -40,7 +40,7 @@ class KaryawanDepartemenController extends Controller
         $request->validate([
             'NIP' => 'required|exists:karyawan,NIP',
             'Id_Departemen' => 'required|exists:departemen,Id_Departemen',
-            'Kode' => 'required', // Assuming 'Kode' is your primary key in 'karyawan_departemen'
+            // 'Kode' => 'required', // Assuming 'Kode' is your primary key in 'karyawan_departemen'
         ]);
 
         // Get existing karyawan and departemen data
@@ -48,11 +48,11 @@ class KaryawanDepartemenController extends Controller
         $departemen = Departemen::find($request->Id_Departemen);
 
         // Make sure 'Kode' is provided in the request or generate it as needed
-        $kode = $request->Kode ?? (karyawan_departemen::max('Kode') + 1);
+        // $kode = $request->Kode ?? (karyawan_departemen::max('Kode') + 1);
 
         // Create karyawan_departemen entry
         karyawan_departemen::create([
-            'Kode' => $kode,
+            // 'Kode' => $kode,
             'NIP' => $karyawan->NIP,
             'Id_Departemen' => $departemen->Id_Departemen,
         ]);

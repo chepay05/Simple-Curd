@@ -19,7 +19,7 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Kode</th>
+                        {{-- <th scope="col">Kode</th> --}}
                         <th scope="col">Nama Karyawan</th>
                         <th scope="col">Nama Departemen</th>
                         <th scope="col">Aksi</th>
@@ -28,7 +28,7 @@
                 <tbody>
                     @foreach ($karyawanDepartemen as $kd)
                         <tr>
-                            <td>{{ $kd->Kode }}</td>
+                            {{-- <td>{{ $kd->Kode }}</td> --}}
                             <td>{{ $kd->karyawan->Nama }}</td>
                             <td>{{ $kd->departemen->Nama_departemen }}</td>
                             <td>
@@ -47,7 +47,7 @@
             <div class="d-flex mb-3">
                 @if (Auth::user()->role == 'admin')
                     <div class="p-2"> <a href="/karyawan" class="btn btn-info">
-                            <i class="bi bi-building"></i> Departemen</a>
+                            <i class="bi bi-person"></i> Karyawan</a>
                     </div>
                 @endif
                 @if (Auth::user()->role == 'staff')

@@ -23,11 +23,10 @@ class DepartemenController extends Controller
      */
     public function create()
     {
-        $max = departemen::max('Id_Departemen');
         $departemen = new departemen();
-        $departemen->Id_Departemen = $max + 1;
         return view('Departemen.create', compact('departemen'));
     }
+
 
     /**
      * Store a newly created resource in storage.

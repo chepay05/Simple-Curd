@@ -13,13 +13,14 @@
                 <thead>
                     <tr>
                         {{-- <th scope="col">id Departemen</th> --}}
-                        <th scope="col">Nama Departemen</th>
+                        <th scope="col">No</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($departemen as $d)
                         <tr>
+                            <td> {{ $loop->iteration }}</td>
                             {{-- <td>{{ $d->Id_Departemen }}</td> --}}
                             <td>{{ $d->Nama_departemen }}</td>
                             <td>
